@@ -1,0 +1,51 @@
+[
+    {
+        "id": 0,
+        "name": "小明",
+        "avatar": "http://lorempixel.com/64/64/cats/1",
+        "WL": true,
+        "RL": true
+    },
+    {
+        "id": 1,
+        "name": "小红",
+        "avatar": "http://lorempixel.com/64/64/cats/2",
+        "WL": true,
+        "RL": false
+    },
+    {
+        "id": 2,
+        "name": "小绿",
+        "avatar": "http://lorempixel.com/64/64/cats/3",
+        "WL": false,
+        "RL": false
+    },
+    {
+        "id": 3,
+        "name": "小白",
+        "avatar": "http://lorempixel.com/64/64/cats/4",
+        "WL": true,
+        "RL": false
+    },
+    {
+        "id": 4,
+        "name": "小黄",
+        "avatar": "http://lorempixel.com/64/64/cats/5",
+        "WL": true,
+        "RL": false
+    },
+    {
+        "id": 5,
+        "name": "小黑",
+        "avatar": "http://lorempixel.com/64/64/cats/6",
+        "WL": false,
+        "RL": false
+    },
+    {
+        "id": 6,
+        "name": "小蓝",
+        "avatar": "http://lorempixel.com/64/64/cats/7",
+        "WL": true,
+        "RL": false
+    }
+]

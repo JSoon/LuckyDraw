@@ -1,0 +1,174 @@
+/*************************************************************************
+** global
+*************************************************************************/
+* {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+:before, :after {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+.clearfix:after { 
+    content: "."; 
+    visibility: hidden; 
+    display: block; 
+    height: 0; 
+    clear: both;
+}
+/*************************************************************************
+** body
+*************************************************************************/
+body {
+    background: url(../img/bg.jpg) center top no-repeat #000;
+    font-family: 'Microsoft YaHei';
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/*************************************************************************
+** #sjLuckyList
+*************************************************************************/
+#sjLuckyContainer {
+    position: relative;
+    width: 845px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+#logo {
+    text-align: center;
+    margin-bottom: 23px;
+}
+#sjLuckyListWrapper {
+    width: 845px;
+    overflow: hidden;
+    position: absolute;
+    top: 150px;
+    left: 0;
+}
+#sjLuckyList {
+    width: 860px;
+    margin: 0;
+    padding: 24px 15px;
+    list-style: none;
+}
+#sjLuckyList li {
+    float: left;
+    width: 64px;
+    margin-right: 19px;
+    margin-bottom: 15px;
+    position: relative;
+    opacity: 0.3;
+}
+#sjLuckyList li.active {
+    opacity: 1;
+}
+#sjLuckyList li.bingo {
+    opacity: 1;
+}
+#sjLuckyList li .sj-avatar-shadow {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    background: url(../img/avatar_mask_shadow.png) 0 0 no-repeat transparent;
+}
+#sjLuckyList li img {
+    width: 64px;
+    height: 64px;
+    -webkit-mask-box-image: url(../img/avatar_mask.png);
+}
+/*************************************************************************
+** #sjPodium
+*************************************************************************/
+#sjPodium {
+    width: 845px;
+    height: 64px;
+    margin: 420px auto 200px;
+}
+.sj-bingo {
+    width: 64px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.sj-bingo .sj-avatar-shadow {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    background: url(../img/avatar_mask_shadow.png) 0 0 no-repeat transparent;
+}
+.sj-bingo img {
+    width: 64px;
+    height: 64px;
+    -webkit-mask-box-image: url(../img/avatar_mask.png);
+}
+/*************************************************************************
+** #sjLuckyCtrl
+*************************************************************************/
+#sjLuckyCtrl {
+    width: 100%;
+    text-align: center;
+}
+#drawBeginBtn,
+#drawStopBtn {
+    display: inline-block;
+    width: 220px;
+    height: 80px;
+    text-indent: -9999px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.8;
+    border: none;
+}
+#drawBeginBtn:hover,
+#drawStopBtn:hover {
+    opacity: 1;
+}
+#drawBeginBtn.disabled,
+#drawStopBtn.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+#drawBeginBtn.disabled:hover,
+#drawStopBtn.disabled:hover {
+    opacity: 0.5;
+}
+#drawBeginBtn {
+    /*margin-left: 15px;*/
+    margin-right: 50px;
+    background: url(../img/btn_start.png) 0 0 no-repeat transparent;
+}
+#drawStopBtn {
+    /*margin-left: 50px;*/
+    background: url(../img/btn_stop.png) 0 0 no-repeat transparent;
+}
+/*************************************************************************
+** #copyright
+*************************************************************************/
+#copyright {
+    width: 100%;
+    line-height: 24px;
+    text-align: center;
+    color: #bbb;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
