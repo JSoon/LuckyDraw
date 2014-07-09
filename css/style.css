@@ -220,6 +220,7 @@ body {
 }
 .sj-bingo .sj-avatar-name {
     display: none;
+    width: 4em;
     background-color: #c35a4c;
     color: #fff;
     font-size: 12px;

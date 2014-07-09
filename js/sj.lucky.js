@@ -66,7 +66,8 @@ SJ.Lucky = {
             datatype: 'json'
         }).done(function ( data, textStatus, jqXHR ) {
             $(list).empty();
-            arr = data
+            // arr = eval ('(' + data + ')');
+            arr = data;
             for (i = 0; i < arr.length; i += 1) {
                 var li = '<li>' +
                     '<div class="sj-avatar-shadow"></div>' +

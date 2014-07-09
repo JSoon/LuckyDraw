@@ -8,17 +8,17 @@
     },
     {
         "id": 1,
-        "name": "小红",
+        "name": "小红红",
         "avatar": "http://lorempixel.com/64/64/cats/2",
         "WL": true,
-        "RL": false
+        "RL": true
     },
     {
         "id": 2,
-        "name": "小绿",
+        "name": "小绿绿",
         "avatar": "http://lorempixel.com/64/64/cats/3",
         "WL": true,
-        "RL": false
+        "RL": true
     },
     {
         "id": 3,
