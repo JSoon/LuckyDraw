@@ -13,6 +13,13 @@ if (window.SJ === undefined) {
 }
 SJ.Lucky = {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 生成限定范围内的随机数
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    randomNum: function (startNum, scope) {
+        var scope = scope || 100000; // 默认范围 0 到 100,000
+        return Math.floor(startNum + Math.random()*scope); // 随机数为 startNum 到 startNum + scope 之间的数
+    },
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 生成不重复的随机数
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     randomNumNoRepeat: function (arr) {
@@ -212,9 +219,96 @@ SJ.Lucky = {
             console.log(textStatus);
             console.log(errorThrown);
         });
+    },
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 天花板灯光
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ceilingLight: function (lights, status) {
+        var that = this,
+            delay = 1000;
+        var alterOpacity0 = function () {
+            delay = that.randomNum(1000, 1600); // 生成随机的灯光闪烁间隔时间
+            $(lights+':eq(0)').stop(true, false).animate({ // .stop( [clearQueue ] [, jumpToEnd ] )
+                opacity: 0.3
+            }, delay, function () {
+                $(this).animate({
+                    opacity: 0
+                }, delay, function () {
+                    alterOpacity0();
+                });
+            });
+        }
+        var alterOpacity1 = function () {
+            delay = that.randomNum(1000, 1600);
+            $(lights+':eq(1)').stop(true, false).animate({
+                opacity: 0.3
+            }, delay, function () {
+                $(this).animate({
+                    opacity: 0
+                }, delay, function () {
+                    alterOpacity1();
+                });
+            });
+        }
+        var alterOpacity2 = function () {
+            delay = that.randomNum(1000, 1600);
+            $(lights+':eq(2)').stop(true, false).animate({
+                opacity: 0.3
+            }, delay, function () {
+                $(this).animate({
+                    opacity: 0
+                }, delay, function () {
+                    alterOpacity2();
+                });
+            });
+        }
+        if (status === 'on') {
+            alterOpacity0();
+            alterOpacity1();
+            alterOpacity2();
+            return 'Ceiling lights on !';
+        } else if (status === 'off') {
+            var lightsNum = $(lights).length, i;
+            for (i = 0; i < lightsNum; i += 1) {
+                $(lights+':eq(' + i + ')').stop(true, false).animate({
+                    opacity: 0
+                }, 1000);
+            }
+            return 'Ceiling lights off !';
+        }
+    },
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 大荧幕灯光
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    screenLight: function (light, delay, status) {
+        var alterOpacity = function () {
+            $(light).stop(true, false).animate({
+                opacity: 0.75
+            }, delay, function () {
+                $(this).animate({
+                    opacity: 0.25
+                }, delay, function () {
+                    alterOpacity();
+                });
+            });
+        }
+        if (status === 'on') {
+            alterOpacity();
+            return 'Screen lights on !';
+        } else if (status === 'off') {
+            $(light).stop(true, false).animate({
+                opacity: 0.25
+            }, 1000);
+            return 'Screen lights off !';
+        }
     }
 }
 
+// 初始化灯光
+SJ.Lucky.ceilingLight('#sjCeiling .sj-ceiling-light', 'on');
+SJ.Lucky.screenLight('#sjScreen', 2000, 'on');
+
+// 初始化抽奖
 SJ.Lucky.draw('#sjLuckyList', '#drawBeginBtn', '#drawStopBtn', function (luckyDog) {
     // 获取当前在抽奖池里中奖者相对于 document 的绝对位置
     var oTop = luckyDog.offset().top;
@@ -247,10 +341,10 @@ SJ.Lucky.draw('#sjLuckyList', '#drawBeginBtn', '#drawStopBtn', function (luckyDo
         left: bLeft
     }, 600, function () {
         // complete callback
+        // 计算中奖者姓名宽度，将其与中奖者头像水平居中对齐
         var bName = $(this).children('.sj-avatar-name');
         var bNameWidth = bName.outerWidth();
         bName.css('margin-left', -bNameWidth/2);
-        console.log(bNameWidth);
         bName.show().addClass('animated bounceInUp');
     });
 });

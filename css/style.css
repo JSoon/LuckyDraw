@@ -83,7 +83,7 @@ body {
     padding: 0;
 }
 /*************************************************************************
-** #sjLuckyList
+** #sjLuckyContainer
 *************************************************************************/
 #sjLuckyContainer {
     position: relative;
@@ -95,6 +95,60 @@ body {
     text-align: center;
     margin-bottom: 23px;
 }
+/*************************************************************************
+** #sjCeiling & #sjScreen
+*************************************************************************/
+#sjCeiling {
+    width: 100%;
+    height: 104px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#sjCeiling .sj-ceiling-light {
+    position: absolute;
+    top: -104px;
+    opacity: 0;
+}
+#sjCeiling .sj-ceiling-light1 {
+    left: -61px;
+    top: -95px;
+}
+#sjCeiling .sj-ceiling-light2 {
+    left: 310px;
+}
+#sjCeiling .sj-ceiling-light3 {
+    left: 686px;
+}
+#sjScreen {
+    position: absolute;
+    top: 55px;
+    left: -108px;
+    z-index: -1;
+    opacity: 0.25;
+    /* screenLight effect */
+    /*-webkit-animation: screenLight 2s ease-in-out infinite alternate;
+    animation: screenLight 2s ease-in-out infinite alternate;*/
+}
+@-webkit-keyframes screenLight {
+    0% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0.75;
+    }
+}
+@keyframes screenLight {
+    0% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0.75;
+    }
+}
+/*************************************************************************
+** #sjLuckyList
+*************************************************************************/
 #sjLuckyListWrapper {
     width: 845px;
     overflow: hidden;
@@ -115,6 +169,7 @@ body {
     margin-bottom: 15px;
     position: relative;
     opacity: 0.3;
+    z-index: 1;
 }
 #sjLuckyList li.active {
     opacity: 1;
@@ -148,6 +203,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
 }
 .sj-bingo .sj-avatar-shadow {
     width: 64px;
