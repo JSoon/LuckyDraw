@@ -229,8 +229,9 @@ SJ.Lucky.draw('#sjLuckyList', '#drawBeginBtn', '#drawStopBtn', function (luckyDo
     var bNum = $('.sj-bingo').length,
         bNumMax = 10; // 一排的最大人数
     // 克隆中奖者，并重新定义结构
+    var bName = luckyDog.children('img').attr('alt'); // 获取中奖者姓名
     bingo = luckyDog.clone().html();
-    $bingo = $('<div class="sj-bingo">' + bingo + '</div>');
+    $bingo = $('<div class="sj-bingo">' + bingo + '<div class="sj-avatar-name">' + bName + '<div class="arrow-bottom"></div></div></div>');
     // 将克隆出来的中奖者放置在抽奖池里中奖者的原始位置
     $bingo.appendTo('body').css({
         top: oTop,
@@ -246,5 +247,10 @@ SJ.Lucky.draw('#sjLuckyList', '#drawBeginBtn', '#drawStopBtn', function (luckyDo
         left: bLeft
     }, 600, function () {
         // complete callback
+        var bName = $(this).children('.sj-avatar-name');
+        var bNameWidth = bName.outerWidth();
+        bName.css('margin-left', -bNameWidth/2);
+        console.log(bNameWidth);
+        bName.show().addClass('animated bounceInUp');
     });
 });
