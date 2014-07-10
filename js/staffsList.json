@@ -11,11 +11,11 @@
         "name": "小红红",
         "avatar": "http://lorempixel.com/64/64/cats/2",
         "WL": true,
-        "RL": true
+        "RL": false
     },
     {
         "id": 2,
-        "name": "小绿绿",
+        "name": "小绿绿绿小绿绿绿",
         "avatar": "http://lorempixel.com/64/64/cats/3",
         "WL": true,
         "RL": true

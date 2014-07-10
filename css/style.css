@@ -220,16 +220,15 @@ body {
 }
 .sj-bingo .sj-avatar-name {
     display: none;
-    width: 4em;
     background-color: #c35a4c;
     color: #fff;
     font-size: 12px;
+    white-space: nowrap;
     padding: 2px 4px;
     border: 1px solid #c04235;
     border-radius: 5px;
     position: absolute;
     top: -30px;
-    left: 50%;
 }
 .sj-bingo .sj-avatar-name .arrow-bottom {
     width: 0;

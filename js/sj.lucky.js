@@ -345,7 +345,11 @@ SJ.Lucky.draw('#sjLuckyList', '#drawBeginBtn', '#drawStopBtn', function (luckyDo
         // 计算中奖者姓名宽度，将其与中奖者头像水平居中对齐
         var bName = $(this).children('.sj-avatar-name');
         var bNameWidth = bName.outerWidth();
-        bName.css('margin-left', -bNameWidth/2);
+        console.log(bNameWidth);
+        bName.css({
+            left: '50%',
+            'margin-left': -bNameWidth/2
+        });
         bName.show().addClass('animated bounceInUp');
     });
 });
